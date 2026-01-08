@@ -38,7 +38,7 @@ function AppContent() {
   if (loading) {
     return (
       <Flex align="center" justify="center" height="100vh" bg="white">
-        <Image src="src/assets/45.svg" alt="Loading..." boxSize="50px" />
+        <Image src="/45.svg" alt="Loading..." boxSize="50px" />
       </Flex>
     );
   }

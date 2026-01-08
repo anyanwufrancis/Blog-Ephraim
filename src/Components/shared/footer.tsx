@@ -1,5 +1,4 @@
 import { Flex, Box, Heading, Text, Divider } from '@chakra-ui/react'
-import React from 'react'
 
 const Footer = () => {
   return (

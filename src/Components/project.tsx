@@ -27,15 +27,15 @@ const technologies = [
   { name: "Supabase", count: 2 },
   { name: "iOS", count: 1 },
 ];
-const list = [
-  { name: "All", count: 2 },
-  { count: 2 },
-  { name: "Android", count: 2 },
-  { name: "AppLinks", count: 1 },
-  { name: "Dart", count: 3 },
-  { name: "Deep-Linking", count: 1 },
-  { name: "DeepLink", count: 1 },
-];
+// const list = [
+//   { name: "All", count: 2 },
+//   { count: 2 },
+//   { name: "Android", count: 2 },
+//   { name: "AppLinks", count: 1 },
+//   { name: "Dart", count: 3 },
+//   { name: "Deep-Linking", count: 1 },
+//   { name: "DeepLink", count: 1 },
+// ];
 
 const Project = () => {
   return (
