@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Optimize crawl budget
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /waitlist/view-list
+
+# Sitemap location
+Sitemap: https://shopahiaoma.com/sitemap.xml
+
+# Crawl delay for better performance
+Crawl-delay: 1
