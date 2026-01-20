@@ -3,10 +3,9 @@ import {
   Box,
   Flex,
   Text,
-  Image,
   Link as ChakraLink,
 } from "@chakra-ui/react";
-import { FiX } from "react-icons/fi";
+import { FiX, FiMenu } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -39,7 +38,7 @@ const Header = () => {
       >
         {/* Logo */}
         <Flex align="center" gap={2} w="9em">
-          <Text fontSize="xl" fontWeight="bold" color="teal.300">
+          <Text fontSize="2xl" fontWeight="bold" color="white">
             Ephraim
           </Text>
         </Flex>
@@ -74,13 +73,10 @@ const Header = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <Image
-              src="menu.png"
-              alt="Menu"
+            <FiMenu
+              size={28}
+              color="white"
               onClick={toggleDropdown}
-              w="100%"
-              h="100%"
-              objectFit="contain"
             />
           </Box>
         )}
@@ -104,11 +100,11 @@ const Header = () => {
           color="white"
         >
           <Flex justify="space-between" mb={6} align="center">
-            <Text fontSize="xl" fontWeight="bold" color="teal.300">
+            <Text fontSize="2xl" fontWeight="bold" color="white">
               Ephraim
             </Text>
             <Box cursor="pointer" onClick={toggleDropdown}>
-              <FiX size={24} />
+              <FiX size={28} color="white" />
             </Box>
           </Flex>
 

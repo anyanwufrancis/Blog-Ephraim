@@ -8,10 +8,12 @@ import {
   Button,
   Input,
   InputGroup,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import Footer from "./shared/footer";
 import Header from "./shared/header";
-
+        import { IoIosArrowRoundForward } from "react-icons/io";
+  import { IoEllipseSharp } from "react-icons/io5";
 export default function BlogSection() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -60,24 +62,177 @@ export default function BlogSection() {
 
       {/* Categories */}
       <Center flexWrap="wrap" gap={4} mb={12} px={{ base: 4, md: 8 }}>
-        {["All", "Web Development", "Mobile Development", "Technology", "Career"].map(
-          (cat) => (
-            <Text
-              key={cat}
-              px={4}
-              py={2}
-              rounded="full"
-              cursor="pointer"
-              _hover={{ bg: "blue.500", color: "white" }}
-              bg="gray.700"
-              color="gray.200"
-              textAlign="center"
-            >
-              {cat}
-            </Text>
-          )
-        )}
+        {[
+          "All",
+          "Web Development",
+          "Mobile Development",
+          "Technology",
+          "Career",
+        ].map((cat) => (
+          <Text
+            key={cat}
+            px={4}
+            py={2}
+            rounded="full"
+            cursor="pointer"
+            _hover={{ bg: "blue.500", color: "white" }}
+            bg="gray.700"
+            color="gray.200"
+            textAlign="center"
+          >
+            {cat}
+          </Text>
+        ))}
       </Center>
+      <SimpleGrid
+  columns={{ base: 1, md: 2, lg: 3 }}
+  spacing="2em"
+  w="100%"
+>
+  {/* CARD 1 */}
+  <Box maxW="sm" borderRadius="xl" overflow="hidden" boxShadow="lg">
+    <Box
+      bgGradient="linear(to-r, blue.400, purple.500)"
+      px={8}
+      py={10}
+      position="relative"
+      minH="180px"
+    >
+      <Box
+        position="absolute"
+        bottom={6}
+        left={8}
+        bg="blue.400"
+        px={4}
+        py={1.5}
+        borderRadius="full"
+        boxShadow="md"
+      >
+        <Text fontSize="sm" fontWeight="bold" color="gray.800">
+          Web Development
+        </Text>
+      </Box>
+    </Box>
+
+    <Box bg="gray.800" color="white" px={5} py={4}>
+      <Flex align="center" gap={3} fontSize="sm" color="gray.400" mb={3}>
+        <Text>1/15/2024</Text>
+        <IoEllipseSharp size={6} />
+        <Text>5 min read</Text>
+      </Flex>
+
+      <Heading fontSize="lg" mb={2}>
+        Building Scalable Web Application with Next.js
+      </Heading>
+
+      <Text fontSize="sm" color="gray.300" mb={4}>
+        Learn how to create performant and scalable web application using Next.js
+        and modern development practices
+      </Text>
+
+      <Flex align="center" gap={2} color="blue.400" cursor="pointer">
+        <Text fontWeight="semibold">Read More</Text>
+        <IoIosArrowRoundForward size={22} />
+      </Flex>
+    </Box>
+  </Box>
+
+  {/* CARD 2 */}
+  <Box maxW="sm" borderRadius="xl" overflow="hidden" boxShadow="lg">
+    <Box
+      bgGradient="linear(to-r, blue.400, purple.500)"
+      px={8}
+      py={10}
+      position="relative"
+      minH="180px"
+    >
+      <Box
+        position="absolute"
+        bottom={6}
+        left={8}
+        bg="blue.400"
+        px={4}
+        py={1.5}
+        borderRadius="full"
+        boxShadow="md"
+      >
+        <Text fontSize="sm" fontWeight="bold" color="gray.800">
+          Mobile Development
+        </Text>
+      </Box>
+    </Box>
+
+    <Box bg="gray.900" color="white" px={5} py={4}>
+      <Flex align="center" gap={3} fontSize="sm" color="gray.400" mb={3}>
+        <Text>1/10/2024</Text>
+        <IoEllipseSharp size={6} />
+        <Text>8 min read</Text>
+      </Flex>
+
+      <Heading fontSize="lg" mb={2}>
+        Flutter vs React Native: Developer's Perspective
+      </Heading>
+
+      <Text fontSize="sm" color="gray.300" mb={4}>
+        Comparing two popular cross-platform mobile development frameworks from a
+        practical standpoint
+      </Text>
+
+      <Flex align="center" gap={2} color="blue.400" cursor="pointer">
+        <Text fontWeight="semibold">Read More</Text>
+        <IoIosArrowRoundForward size={22} />
+      </Flex>
+    </Box>
+  </Box>
+
+  {/* CARD 3 */}
+  <Box maxW="sm" borderRadius="xl" overflow="hidden" boxShadow="lg">
+    <Box
+      bgGradient="linear(to-r, blue.400, purple.500)"
+      px={8}
+      py={10}
+      position="relative"
+      minH="180px"
+    >
+      <Box
+        position="absolute"
+        bottom={6}
+        left={8}
+        bg="blue.400"
+        px={4}
+        py={1.5}
+        borderRadius="full"
+        boxShadow="md"
+      >
+        <Text fontSize="sm" fontWeight="bold" color="gray.800">
+          Technology
+        </Text>
+      </Box>
+    </Box>
+
+    <Box bg="gray.900" color="white" px={5} py={4}>
+      <Flex align="center" gap={3} fontSize="sm" color="gray.400" mb={3}>
+        <Text>1/5/2024</Text>
+        <IoEllipseSharp size={6} />
+        <Text>6 min read</Text>
+      </Flex>
+
+      <Heading fontSize="lg" mb={2}>
+        The Future of Full-Stack Development
+      </Heading>
+
+      <Text fontSize="sm" color="gray.300" mb={4}>
+        Exploring emerging trends and technologies shaping the future of full
+        stack development
+      </Text>
+
+      <Flex align="center" gap={2} color="blue.400" cursor="pointer">
+        <Text fontWeight="semibold">Read More</Text>
+        <IoIosArrowRoundForward size={22} />
+      </Flex>
+    </Box>
+  </Box>
+</SimpleGrid>
 
       {/* Subscribe Section */}
       <Box
@@ -109,7 +264,7 @@ export default function BlogSection() {
         <Flex
           direction={{ base: "column", sm: "row" }}
           gap={4}
-          maxW="600px"
+          maxW="400px"
           mx="auto"
           justify="center"
         >

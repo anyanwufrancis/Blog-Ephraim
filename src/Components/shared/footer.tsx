@@ -1,4 +1,5 @@
-import { Flex, Box, Heading, Text, Divider } from '@chakra-ui/react'
+import { Flex, Box, Heading, Text, Divider, Link } from '@chakra-ui/react'
+// import { Links } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -9,8 +10,9 @@ const Footer = () => {
         backgroundColor="blackAlpha.900"
         gap="2em"
         flexDirection="column"
-        alignItems="center"
+        // alignItems="center"
         padding="2em"
+        mt={"2em"}
       >
         <Flex
           width="100%"
@@ -18,7 +20,7 @@ const Footer = () => {
           justifyContent="space-between"
           flexWrap="wrap"
         >
-          <Box flex="1" minWidth="250px">
+          <Box flex="1" minWidth="250px" textAlign={"left"}>
             <Heading>Ephraim Umunnakwe</Heading>
             <Text w="38em" mt="1em">
               Hi, I’m Ephraim Umunnakwe, but most people know me as King Raym. I’m a
@@ -30,10 +32,18 @@ const Footer = () => {
           </Box>
           <Box mt="1em" textAlign="left" ml="3em" minWidth="150px">
             <Heading fontSize="lg">Quick Links</Heading>
+            <Link href="/about  ">
             <Text mt="0.5em">About</Text>
-            <Text mt="0.5em">Project</Text>
+            </Link>
+            <Link href='/project'>
+            <Text mt="0.5em">Project</Text>         
+            </Link>
+            <Link href='/service'>         
             <Text mt="0.5em">Service</Text>
-            <Text mt="0.5em">Contact</Text>
+            </Link>
+            <Link href='/contact'>
+            <Text mt="0.5em">Contact</Text>  
+            </Link>
           </Box>
           <Box mt="1em" textAlign="left" ml="3em" minWidth="150px">
             <Heading fontSize="lg">Services</Heading>

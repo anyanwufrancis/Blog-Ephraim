@@ -1,4 +1,4 @@
-import  { useState,  } from "react";
+import  { useRef, useState,  } from "react";
 import {
   // Image,
   Box,
@@ -12,6 +12,8 @@ import {
   Image,
   Button,
   Text,
+  Textarea,
+  useToast,
 } from "@chakra-ui/react";
 // import { IoRocketSharp } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
@@ -21,7 +23,8 @@ import Footer from "./shared/footer";
 import { CiLocationOn } from "react-icons/ci";
 
 const ContactPage = () => {
-  // const firstNameRef = useRef(null);
+  const firstNameRef = useRef(null);
+    const toast = useToast();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -36,8 +39,27 @@ const ContactPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = () => {
-    alert("Message submitted!"); // Replace with your form logic
+ const handleSubmit = () => {
+    const { firstName, lastName, email, subject, message } = formData;
+
+    if (!firstName || !lastName || !email || !subject || !message) {
+      toast({
+        title: "Please fill all required fields.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      (firstNameRef.current as unknown as HTMLInputElement)?.focus();
+      return;
+    }
+    toast({
+      title: "Your email client has been opened.",
+      description: "Please send the pre-filled email to complete your message.",
+      status: "success",
+      duration: 4000,
+      isClosable: true,
+    });
+    // Implement email API or mailto: link here if needed
   };
 
   return (
@@ -47,17 +69,17 @@ const ContactPage = () => {
 
       {/* Main Heading */}
       <Box
-        mb={12}
+        mb={16}
         textAlign="center"
         px={4}
         maxW="1200px"
         mx="auto"
         width="100%"
+        mt={6}
       >
-        <Heading fontSize={{ base: "4xl", md: "6xl" }}>Contact Us</Heading>
+        <Heading fontSize={{ base: "4xl", md: "6xl" }}>Get In Touch</Heading>
         <Text fontSize="lg" color="gray.400" maxW="37em" mx="auto" mt={4}>
-          Have questions? We'd love to hear from you. Send us a message and
-          we'll respond as soon as possible.
+        Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
         </Text>
       </Box>
 
@@ -74,12 +96,8 @@ const ContactPage = () => {
         {/* Contact Info */}
         <Box flex="1" mb={{ base: 8, md: 0 }} width="100%">
           <Heading fontSize="2xl" mb={4}>
-            Let's Start a Conversation
+            Let's Connect
           </Heading>
-          <Text mb={6} maxW="30em" fontSize="lg" color="gray.400">
-            Whether you're a buyer looking for products or a seller wanting to
-            join our marketplace, we're here to help you succeed.
-          </Text>
 
           <VStack spacing={4} align="stretch">
             <Flex
@@ -97,7 +115,7 @@ const ContactPage = () => {
                 <Text fontSize="md">ephraimumunnakwe3@gmail.com</Text>
               </VStack>
             </Flex>
-            <Flex mt={"-2em"} p={4} rounded="md" shadow="md">
+            <Flex mt={"-2em"} p={4} rounded="md">
               <Box>
                 <Image src="/mobile.png" maxW="60px" w="100%" h="auto" />
               </Box>
@@ -135,8 +153,9 @@ const ContactPage = () => {
           </Heading>
           <Stack spacing={4}>
             <FormControl isRequired>
-              <FormLabel color="whiteAlpha.800">First Name</FormLabel>
+              <FormLabel color="whiteAlpha.800">Name</FormLabel>
               <Input
+                ref={firstNameRef}
                 name="firstName"
                 placeholder="Your first name"
                 value={formData.firstName}
@@ -146,7 +165,7 @@ const ContactPage = () => {
                 color="white"
               />
             </FormControl>
-            <FormControl isRequired>
+            {/* <FormControl isRequired>
               <FormLabel color="whiteAlpha.800">Last Name</FormLabel>
               <Input
                 name="lastName"
@@ -156,11 +175,12 @@ const ContactPage = () => {
                 focusBorderColor="green.500"
                 bg="gray.700"
                 color="white"
-              />
-            </FormControl>
+              /> */}
+            {/* </FormControl> */}
             <FormControl isRequired>
               <FormLabel color="whiteAlpha.800">Email</FormLabel>
               <Input
+          
                 type="email"
                 name="email"
                 placeholder="your.email@example.com"
@@ -171,6 +191,31 @@ const ContactPage = () => {
                 color="white"
               />
             </FormControl>
+            <FormControl isRequired>
+              <FormLabel color="whiteAlpha.800">Subject</FormLabel>
+              <Input
+                type="Subjet"
+                name="subject"
+                placeholder="what's all about"
+                value={formData.email}
+                onChange={handleChange}
+                focusBorderColor="green.500"
+                bg="gray.700"
+                color="white"
+              />
+            </FormControl>
+             {/* Message */}
+                <FormControl isRequired>
+                  <FormLabel>Message</FormLabel>
+                  <Textarea
+                    placeholder="Tell me about your project"
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    focusBorderColor="green.500"
+                  />
+                </FormControl>
             <Button colorScheme="green" onClick={handleSubmit} width="full">
               Send Message
             </Button>

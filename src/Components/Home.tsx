@@ -159,11 +159,23 @@ export default function Home() {
             transition={{ duration: 1.4, repeat: Infinity }}
           />
         </Box>
+       <Button
+       position={"absolute"}
+       top={"15em"}
+       left={"75em"}
+          bg="#2b6cb0" // or use colorScheme="blue"
+          color="#fff"
+          _hover={{ bg: "#2c5282" }}
+          // leftIcon={<span className="material-icons">refresh</span>}
+          onClick={() => window.location.reload()}
+        >
+          Please Refresh
+        </Button>
       </Box>
 
       {/* TECHNICAL EXPERTISE */}
       <Box backgroundColor={"blackAlpha.900"}>
-        <Box color={"white"} mt={"0em"}>
+        <Box color={"white"}py={"4em"} mt={"0em"}>
           <Heading textAlign="center" mb={10}>
             Technical Expertise
           </Heading>
@@ -171,7 +183,7 @@ export default function Home() {
             I specialize in mobile and web development with a focus on creating
             scalable, user-friendly applications.
           </Text>
-          <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={6}>
+          <Grid mx={"auto"} templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} w={{base:"19em",md:"55em"}} gap={6}>
             {[
               {
                 title: "Mobile Development",
@@ -262,7 +274,7 @@ export default function Home() {
               <Text mb={4} fontStyle="italic">
                 {slides[current].text}
               </Text>
-              <Flex>
+              <Flex alignItems={"center"} ml={{base:"8em", md:""}}>
                 {/* Initials below name */}
                 <Box
                   w="50px"
@@ -280,7 +292,7 @@ export default function Home() {
                 </Box>
                 {/* Name */}
                 <Box mr={"10em"} textAlign={"center"}>
-                  <Text fontWeight="bold" mb={1}>
+                  <Text fontWeight="bold" maxW={"1200px"} mb={1}>
                     {slides[current].name}
                   </Text>
                   <Text fontSize="sm" color="whiteAlpha.700" mb={3}>
@@ -298,6 +310,7 @@ export default function Home() {
                 key={i}
                 w="10px"
                 h="10px"
+                mb={"2em"}
                 rounded="full"
                 bg={i === current ? "blue.400" : "gray.300"}
                 cursor="pointer"
@@ -309,6 +322,9 @@ export default function Home() {
       </Box>
       <Box
         py={"2em"}
+        // mt={"2em"}
+        mb={"-2em"}
+        h={"13em"}
         textAlign={"center"}
         bgGradient="linear(to-r, blue.500, purple.600)"
       >
