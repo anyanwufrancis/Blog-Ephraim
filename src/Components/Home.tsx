@@ -235,90 +235,96 @@ export default function Home() {
           </Grid>
         </Box>
 
-        {/* TESTIMONIALS */}
-        <Box color={"white"} mt={24} textAlign="center">
-          <Heading mb={2}>What Clients Say</Heading>
-          <Text mb={10} color="white">
-            Feedback from people I’ve worked with
-          </Text>
+{/* TESTIMONIALS */}
+<Box color="white" mt={24} textAlign="center">
+  <Heading mb={2}>What Clients Say</Heading>
+  <Text mb={10} color="white">
+    Feedback from people I’ve worked with
+  </Text>
 
-          <GridItem
-            display="flex"
-            justifyContent="center"
-            rounded="2xl"
-            p={{ base: 6, md: 10 }}
-            color="white"
-            position="relative"
-            overflow="hidden"
-          >
-            <Box
-              bg="whiteAlpha.200"
-              backdropFilter="blur(10px)"
-              rounded="2xl"
-              p={6}
-              maxW="500px"
-              textAlign="center"
-              boxShadow="2xl"
-            >
-              {/* Quote icon at top */}
-              <Box mb={4}>
-                <Icon as={FaQuoteLeft} boxSize={8} color="whiteAlpha.700" />
-              </Box>
-              {/* 5 Stars */}
-              <HStack justify="center" spacing={1} mb={3}>
-                {[...Array(5)].map((_, i) => (
-                  <Icon key={i} as={FaStar} color="yellow.400" />
-                ))}
-              </HStack>
-              {/* Testimonial text */}
-              <Text mb={4} fontStyle="italic">
-                {slides[current].text}
-              </Text>
-              <Flex alignItems={"center"} ml={{base:"8em", md:""}}>
-                {/* Initials below name */}
-                <Box
-                  w="50px"
-                  h="50px"
-                  mx="auto"
-                  rounded="full"
-                  bg="whiteAlpha.300"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  fontWeight="bold"
-                  fontSize="xl"
-                >
-                  {slides[current].initials}
-                </Box>
-                {/* Name */}
-                <Box mr={"10em"} textAlign={"center"}>
-                  <Text fontWeight="bold" maxW={"1200px"} mb={1}>
-                    {slides[current].name}
-                  </Text>
-                  <Text fontSize="sm" color="whiteAlpha.700" mb={3}>
-                    {slides[current].role}
-                  </Text>
-                </Box>
-              </Flex>
-            </Box>
-          </GridItem>
+  <GridItem
+    display="flex"
+    justifyContent="center"
+    rounded="2xl"
+    p={{ base: 6, md: 10 }}
+    color="white"
+    position="relative"
+    overflow="hidden"
+  >
+    <Box
+      bg="whiteAlpha.200"
+      backdropFilter="blur(10px)"
+      rounded="2xl"
+      p={6}
+      maxW="500px"
+      textAlign="center"
+      boxShadow="2xl"
+    >
+      {/* Quote icon at top */}
+      <Box mb={4}>
+        <Icon as={FaQuoteLeft} boxSize={8} color="whiteAlpha.700" />
+      </Box>
+      {/* 5 Stars */}
+      <HStack justify="center" spacing={1} mb={3}>
+        {[...Array(5)].map((_, i) => (
+          <Icon key={i} as={FaStar} color="yellow.400" />
+        ))}
+      </HStack>
+      {/* Testimonial text */}
+      <Text mb={4} fontStyle="italic">
+        {slides[current].text}
+      </Text>
 
-          {/* DOTS */}
-          <HStack justify="center" mt={6}>
-            {slides.map((_, i) => (
-              <Box
-                key={i}
-                w="10px"
-                h="10px"
-                mb={"2em"}
-                rounded="full"
-                bg={i === current ? "blue.400" : "gray.300"}
-                cursor="pointer"
-                onClick={() => setCurrent(i)}
-              />
-            ))}
-          </HStack>
+      {/* Initials and Name/Role in Row */}
+      <Flex align="center" justify="center" gap={4} mt={4}>
+        {/* Initials circle */}
+        <Box
+          w="50px"
+          h="50px"
+          rounded="full"
+          bg="whiteAlpha.300"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontWeight="bold"
+          fontSize="xl"
+          flexShrink={0} // prevents compression
+        >
+          {slides[current].initials}
         </Box>
+
+        {/* Name and Role */}
+        <Box textAlign="left">
+          <Text fontWeight="bold" mb={1}>
+            {slides[current].name}
+          </Text>
+          <Text fontSize="sm" color="whiteAlpha.700">
+            {slides[current].role}
+          </Text>
+        </Box>
+      </Flex>
+    </Box>
+  </GridItem>
+
+  {/* DOTS */}
+  <HStack justify="center" mt={6}>
+    {slides.map((_, i) => (
+      <Box
+        key={i}
+        w="10px"
+        h="10px"
+        mb="2em"
+        rounded="full"
+        bg={i === current ? "blue.400" : "gray.300"}
+        cursor="pointer"
+        onClick={() => setCurrent(i)}
+      />
+    ))}
+  </HStack>
+</Box>
+
+
+
       </Box>
       <Box
         py={"2em"}
